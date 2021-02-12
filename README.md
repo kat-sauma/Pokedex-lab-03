@@ -1,3 +1,5 @@
+![PokedexPlanningMiroBoard](https://user-images.githubusercontent.com/74579728/107719132-61fb1c00-6c8c-11eb-9244-a550f9474ae3.png)
+
 PokedexPlan from '../public/PokedexPlanningMiroBoard.png'
 made with friends <3
 
