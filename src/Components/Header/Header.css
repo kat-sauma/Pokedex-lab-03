@@ -1,0 +1,16 @@
+header {
+    height: 200px;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    float: left;
+}
+nav {
+    display: flex;
+    float: right;
+}
