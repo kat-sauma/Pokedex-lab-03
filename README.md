@@ -1,3 +1,6 @@
+PokedexPlan from '../public/PokedexPlanningMiroBoard.png'
+made with friends <3
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
