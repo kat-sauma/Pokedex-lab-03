@@ -11,24 +11,24 @@ export default class PokeItems extends Component {
                 attack,
                 defense,
                 egg_group_1,
-                url_image,
-                pokebase,
-                pokedex
+                url_image
+                // pokebase,
+                // pokedex
             }
         } = this.props;
         return (
             <li
                 className='pokemon-list'>
-                <p className='id'>_id</p>
-                <p className='pokemon'>pokemon</p>
-                <p className='hp'>hp</p>
-                <p className='color'>color</p>
-                <p className='attack'>attack</p>
-                <p className='defense'>defense</p>
-                <p className='egg-group'>egg_group_1</p>
-                <p className='url'>url_image</p>
-                <p className='pokebase'>pokebase</p>
-                <p className='pokedex'>pokedex</p>
+                <h3 className='id'>{_id}</h3>
+                <h2 className='pokemon'>{pokemon}</h2>
+                <p className='hp'>{hp}</p>
+                <p className='color'>Health: {color}</p>
+                <p className='attack'>Attack: {attack}</p>
+                <p className='defense'>Defense: {defense}</p>
+                <p className='egg-group'>Egg: {egg_group_1}</p>
+                <img alt='pokemon-images' className='url-image' src={url_image} />
+                {/* <p className='pokebase'>{pokebase}</p>
+                <p className='pokedex'>{pokedex}</p> */}
             </li>
         )
     }

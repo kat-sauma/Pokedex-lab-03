@@ -5,8 +5,8 @@ import {
   Switch,
 } from 'react-router-dom';
 import SearchPage from './Components/Search/Search.js';
-import HomePage from './Components/Home/Home.js';
-import Header from './Components/Header/Header.js';
+import HomePage from './Home/Home.js';
+import Header from './Header/Header.js';
 
 export default class App extends Component {
   render() {
