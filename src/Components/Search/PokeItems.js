@@ -4,7 +4,6 @@ export default class PokeItems extends Component {
     render() {
         const {
             pokeProp: {
-                _id,
                 pokemon,
                 hp,
                 color,
@@ -19,7 +18,6 @@ export default class PokeItems extends Component {
         return (
             <li
                 className='pokemon-list'>
-                <h3 className='id'>{_id}</h3>
                 <h2 className='pokemon'>{pokemon}</h2>
                 <p className='hp'>{hp}</p>
                 <p className='color'>Health: {color}</p>
