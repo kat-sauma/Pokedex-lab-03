@@ -1,16 +1,34 @@
 header {
     height: 200px;
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
+    width: 300px;
+    font-family: 'Righteous', cursive;
+    background: rgba(216, 191, 216, 0.352);
+    background-blend-mode: multiply;
 }
 
-h1 {
-    float: left;
+h2 {
+    color: coral;
+    text-shadow: 2px 2px thistle;
+    font-size: 40px;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: stretch;
 }
-nav {
-    display: flex;
-    float: right;
+a {
+    justify-content: center;
+    align-self: stretch;
+    color:rgb(122, 247, 218);
+    text-shadow: 1.5px 1px slateblue;
+    font-size: 26px;
+    text-decoration: none;
+    border-bottom-right-radius: 30%;
+    border-top-left-radius: 30%;
+    border: solid 2px slateblue;
+    padding: 5px;
+}
+
+a:hover {
+    transition-duration: 3s;
+    border-top-right-radius: 60%;
+    border-bottom-left-radius: 60%;
 }

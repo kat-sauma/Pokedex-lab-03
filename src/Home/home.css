@@ -1,7 +1,62 @@
 body{
+    height: 100%;
     background-image: url('https://media.giphy.com/media/cOSbH8NoUFt9MXbuie/giphy.gif');
+    background-color: rgba(205, 255, 243, 0.51);
     background-size: cover;
+    background-blend-mode: screen;
     height: 100vh;
     padding:0;
     margin:0;
+    font-family: "Righteous", cursive;
+}
+
+
+
+/* .App{
+    height: 100%;
+    width: 80%;
+    display: flex;
+} */
+
+/* main{
+    height: 100%;
+    width: 40%; 
+    display: flex;
+    align-content: center;
+    justify-content: center;
+} */
+
+.home-page{
+    height: 100%;
+    display: flex;
+    /* align-content: space-around;
+    justify-content: center;
+    flex-flow: row ; */
+}
+
+.three{
+    display: flex;
+    width: 500px;
+    height: 500px;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+}
+ .evee {
+    height: 250px;
+    align-self: flex-end;
+    /* order: -1; */
+
+} 
+.flareon {
+    align-self: center;
+    height: 200px;
+    order: 1;
+}
+.umbreon {
+    align-self: flex-start;
+    height: 250px;
+
+}
+.jiggly-puff {
+    height: 325px;
 }
