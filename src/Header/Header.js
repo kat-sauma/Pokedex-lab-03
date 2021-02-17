@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { NavLink, withRouter } from 'react-router-dom';
+import '../App.css';
 
 export default withRouter(class Header extends Component {
     render() {

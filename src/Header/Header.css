@@ -1,16 +1,13 @@
 header {
     height: 200px;
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
+    width: auto;
+
 }
 
-h1 {
-    float: left;
+.title {
+    align-self: center;
+    font-family: 'Lemon', cursive;
 }
-nav {
-    display: flex;
-    float: right;
+a {
+    
 }

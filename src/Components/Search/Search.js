@@ -1,109 +1,82 @@
 import React, { Component } from 'react'
+import request from 'superagent';
 import PokeList from './PokeList.js';
-import pokemonImages from '../../Data.js';
-import SearchBar from './SearchBar.js';
-import DropDown from './DropDown.js';
+import Spinner from '../Spinner.js';
+// import Header from '../Header.js';
+// import pokemonImages from '../../Data.js';
+// import SearchBar from './SearchBar.js';
+// import DropDown from './DropDown.js';
+// import SortOrder from './Sort.js';
+
 
 export default class Search extends Component {
 
     state = {
-        pokemon: pokemonImages,
-        sortOrder: 'Ascend',
-        sortBy: 'pokemon',
-        search: ''
+        pokemon: [],
+        query: '',
+        loading: false
     }
 
-    handleSortOrder = (e) => {
+    componentDidMount = async () => {
+        await this.fetchPokemon();
+    }
+
+    fetchPokemon = async () => {
+        this.setState({ loading: true });
+        const data = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.query}`);
+
         this.setState({
-            sortOrder: e.target.value
-        })
+            loading: false,
+            pokemon: data.body.results,
+        });
     }
 
-    handleSortBy = (e) => {
+    handleClick = async () => {
+        await this.fetchPokemon();
+    }
+
+    handleQueryChange = async (e) => {
         this.setState({
-            sortBy: e.target.value
-        })
+            query: e.target.value,
+        });
     }
-
-    handleSearch = (e) => {
-        this.setState({
-            search: e.target.value
-        })
-    }
-
-    // handleFilterType = (e) => {
-    //     this.setState({
-    //         filter: e.target.value
-    //     })
-    // }
-
-    // handleFilterEgg1 = (e) => {
-    //     this.setState({
-    //         filter: e.target.value
-    //     })
-    // }
-
-    // handleFilterEgg2 = (e) => {
-    //     this.setState({
-    //         filter: e.target.value
-    //     })
-    // }
-
-    // handleFilterAbility = (e) => {
-    //     this.setState({
-    //         filter: e.target.value
-    //     })
-    // }
-
 
     render() {
 
-        if (this.state.sortBy !== '') {
-
-            if (this.state.sortOrder === 'Ascend') {
-                this.state.pokemon.sort((a, b) => a[this.state.sortBy].localeCompare(b[this.state.sortBy]))
-                //descending order
-            } else { this.state.pokemon.sort((a, b) => b[this.state.sortBy].localeCompare(a[this.state.sortBy])) };
-        }
-
-        const filteredByName = pokemonImages.filter(poke => poke.pokemon.includes(this.state.search))
-
-        // JSX turning into HTML
         return (
-            <div className='side-bar'>
-                <aside className='searchBar'>
-                    {/* <DropDown
-                        currentValue={this.state.pokemon}
-                        handleChange={this.handleChange}
-                        options={this.state.filter}
-                    /> */}
-                    <select
-                        value={this.currentValue}
-                        onChange={this.handleSortOrder}
-                    >
-                        <option value='Ascend'>Ascending</option>
-                        <option value='Descend'>Descending</option>
-                    </select>
-                    <select
-                        value={this.currentValue}
-                        onChange={this.handleSortBy}
-                    >
-                        {/* {this.props.options.map(
-                            listItem =>
-                                <option value={listItem}> {listItem} </option>)
-                        } */}
-                        <option value='pokemon'>Pokemon</option>
-                        <option value='type_1'>Type</option>
-                        <option value='ability_hidden'>Ability</option>
-                        <option value='egg_group_1'>Egg</option>
+            <>
+                {/* <Header /> */}
+                <label>
+                    Search
+                    <input onChange={this.handleQueryChange} />
+                </label>
 
-                    </select>
-                    <SearchBar currentValue={this.state.search}
-                        handleChange={this.handleSearch} />
-                </aside>
-
-                <PokeList pokemonImages={filteredByName} />
-            </div>
+                <button onClick={this.handleClick}>Go!</button>
+                <h1>Pokemon</h1>
+                <div className='spinner'>
+                    {
+                        this.state.loading
+                            ? <Spinner />
+                            : this.state.pokemon.map(poke =>
+                                <div key={poke.pokemon}>
+                                    <p className='rendered-pokemon'>
+                                        <img src={poke.url_image} alt="pokemon" />
+                                    </p>
+                                    <h3>{poke.pokemon} :</h3>
+                                    <p className='poke-info'>
+                                        {poke.type_1}
+                                        <br></br>
+                                        {poke.attack}
+                                        <br></br>
+                                        {poke.defense}
+                                        <br></br>
+                                        {poke.egg_group_1}
+                                    </p>
+                                </div>)
+                    }
+                </div>
+                <PokeList pokemonImages={this.state.pokemon} />
+            </>
         )
     }
 }
