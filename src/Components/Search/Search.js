@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import request from 'superagent';
 import PokeList from './PokeList.js';
 import Spinner from '../Spinner.js';
+import './search.css';
 // import Header from '../Header.js';
 // import pokemonImages from '../../Data.js';
 // import SearchBar from './SearchBar.js';
@@ -44,15 +45,18 @@ export default class Search extends Component {
     render() {
 
         return (
-            <>
+            <section>
                 {/* <Header /> */}
-                <label>
-                    Search
-                    <input onChange={this.handleQueryChange} />
-                </label>
-
-                <button onClick={this.handleClick}>Go!</button>
-                <h1>Pokemon</h1>
+                <aside>
+                    <label>
+                        <h3>Search</h3>
+                        <input onChange={this.handleQueryChange} />
+                    </label>
+                    <button onClick={this.handleClick}>Go!</button>
+                </aside>
+                <title>
+                    <h1>Pokemon</h1>
+                </title>
                 <div className='spinner'>
                     {
                         this.state.loading
@@ -62,7 +66,7 @@ export default class Search extends Component {
                                     <p className='rendered-pokemon'>
                                         <img src={poke.url_image} alt="pokemon" />
                                     </p>
-                                    <h3>{poke.pokemon} :</h3>
+                                    <h4>{poke.pokemon} :</h4>
                                     <p className='poke-info'>
                                         {poke.type_1}
                                         <br></br>
@@ -75,8 +79,10 @@ export default class Search extends Component {
                                 </div>)
                     }
                 </div>
-                <PokeList pokemonImages={this.state.pokemon} />
-            </>
+                <main className='pokemon-images'>
+                    {/* <PokeList pokemonImages={this.state.pokemon} /> */}
+                </main>
+            </section>
         )
     }
 }

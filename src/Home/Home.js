@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import './home.css';
+import '../index.css';
 
 export default class Home extends Component {
     render() {
         return (
             <main>
+                <link rel="preconnect" href="https://fonts.gstatic.com" />
+                <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet"></link>
                 <div className='home-page'>
                     <h3>HOME PAGE</h3>
                     <div className='three'>
@@ -15,7 +18,6 @@ export default class Home extends Component {
                     <div className='jiggly-puff'>
                         <img alt='jiggly-puff' src='./jiggly-puff.png'></img>
                     </div>
-                    {/* <img className='pikachu' alt='pikachu' src='./pikachu.png'></img> */}
                 </div>
             </main>
         )

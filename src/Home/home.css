@@ -7,13 +7,10 @@ body{
     height: 100vh;
     padding:0;
     margin:0;
-    font-family: "Lemon", cursive;
+    font-family: "Righteous", cursive;
 }
 
-font-family {
-    @import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
 
-}
 
 /* .App{
     height: 100%;
@@ -28,6 +25,7 @@ font-family {
     align-content: center;
     justify-content: center;
 } */
+
 .home-page{
     height: 100%;
     display: flex;
@@ -62,6 +60,3 @@ font-family {
 .jiggly-puff {
     height: 225px;
 }
-/* .pikachu {
-    height: 225px;
-}   */
