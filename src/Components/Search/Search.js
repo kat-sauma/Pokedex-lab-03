@@ -15,7 +15,10 @@ export default class Search extends Component {
     state = {
         pokemon: [],
         query: '',
-        loading: false
+        loading: false,
+        currentPage: 1,
+        perPage: 50,
+        totalPokemon: 0
     }
 
     componentDidMount = async () => {
@@ -24,15 +27,17 @@ export default class Search extends Component {
 
     fetchPokemon = async () => {
         this.setState({ loading: true });
-        const data = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.query}`);
+        const data = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.query}&page=${this.state.currentPage}&perPage=${this.state.perPage}`);
 
         this.setState({
             loading: false,
             pokemon: data.body.results,
+            totalPokemon: data.body.count
         });
     }
 
     handleClick = async () => {
+        await this.setState({ currentPage: 1 });
         await this.fetchPokemon();
     }
 
@@ -42,7 +47,33 @@ export default class Search extends Component {
         });
     }
 
+    handlePerPage = (e) => {
+        this.state({ perPage: e.target.value })
+    }
+
+    handlePrevButtonClick = async () => {
+        await this.setState({
+            currentPage: this.state.currentPage - 1
+        });
+
+        await this.fetchPokemon();
+    }
+
+    handleNextButtonClick = async () => {
+        await this.setState({
+            currentPage: this.state.currentPage + 1
+        });
+
+        await this.fetchPokemon();
+    }
+
     render() {
+        const {
+            pokemonData,
+            loading,
+        } = this.state;
+
+        const lastPage = Math.ceil(this.state.totalPokemon / this.state.perPage);
 
         return (
             <section>
@@ -51,8 +82,19 @@ export default class Search extends Component {
                     <label>
                         <h3>Search</h3>
                         <input onChange={this.handleQueryChange} />
+                        <button onClick={this.handleClick}>Go!</button>
+                        <button onClick={this.handlePrevButtonClick} disabled={this.state.currentPage === 1} className='prev-page'>Prev</button>
+                        <button onClick={this.handleNextButtonClick} disabled={this.state.currentPage === lastPage} className='next-page'>Next</button>
+                        Results per page:
+                        <select onChange={this.handlePerPage}>
+                            <option value={10}>10</option>
+                            <option value={25}>25</option>
+                            <option value={50}>50</option>
+                            <option value={75}>75</option>
+                            <option value={100}>100</option>
+                        </select>
+                        <h3>Page {this.state.currentPage}</h3>
                     </label>
-                    <button onClick={this.handleClick}>Go!</button>
                 </aside>
                 <title>
                     <h1>Pokemon</h1>
