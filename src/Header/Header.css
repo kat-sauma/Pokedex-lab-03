@@ -1,16 +1,43 @@
 header {
-    height: 200px;
+    height: 100px;
     width: 100%;
+    font-family: 'Righteous', cursive;
+    background: rgba(216, 191, 216, 0.352);
+    background-blend-mode: multiply;
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
+    
 }
 
-h1 {
-    float: left;
+h2 {
+    width: 100%;
+    color: coral;
+    text-shadow: 2px 2px thistle;
+    font-size: 40px;
+    text-transform: uppercase;
+    justify-content: center;
+    text-align: left;
+    padding-left: 5%;
 }
-nav {
-    display: flex;
-    float: right;
+a {
+    justify-content: center;
+    align-self: center;
+    color:rgb(122, 247, 218);
+    text-shadow: 1.5px 1px slateblue;
+    font-size: 26px;
+    text-decoration: none;
+    border-bottom-right-radius: 30%;
+    border-top-left-radius: 30%;
+    border: solid 2px slateblue;
+    padding: 5px;
+    margin-right: 5%;
+}
+
+a:hover {
+    transition-duration: 3s;
+    border-top-right-radius: 60%;
+    border-bottom-left-radius: 60%;
+}
+
+a:focus{
+    outline: none;
 }
