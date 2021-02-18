@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
 export default class PokeItems extends Component {
     render() {
@@ -16,8 +17,7 @@ export default class PokeItems extends Component {
             }
         } = this.props;
         return (
-            <li
-                className='pokemon-list'>
+            <Link to={pokemon} className='pokemon-list'>
                 <h2 className='pokemon'>{pokemon}</h2>
                 <p className='hp'>{hp}</p>
                 <p className='color'>Health: {color}</p>
@@ -27,7 +27,7 @@ export default class PokeItems extends Component {
                 <img alt='pokemon-images' className='url-image' src={url_image} />
                 {/* <p className='pokebase'>{pokebase}</p>
                 <p className='pokedex'>{pokedex}</p> */}
-            </li>
+            </Link>
         )
     }
 }

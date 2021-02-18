@@ -61,27 +61,9 @@ export default class Search extends Component {
                     {
                         this.state.loading
                             ? <Spinner />
-                            : this.state.pokemon.map(poke =>
-                                <div key={poke.pokemon}>
-                                    <p className='rendered-pokemon'>
-                                        <img src={poke.url_image} alt="pokemon" />
-                                    </p>
-                                    <h4>{poke.pokemon} :</h4>
-                                    <p className='poke-info'>
-                                        {poke.type_1}
-                                        <br></br>
-                                        {poke.attack}
-                                        <br></br>
-                                        {poke.defense}
-                                        <br></br>
-                                        {poke.egg_group_1}
-                                    </p>
-                                </div>)
+                            : <PokeList pokemonImages={this.state.pokemon} />
                     }
                 </div>
-                <main className='pokemon-images'>
-                    {/* <PokeList pokemonImages={this.state.pokemon} /> */}
-                </main>
             </section>
         )
     }

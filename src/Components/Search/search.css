@@ -32,14 +32,13 @@ h3 {
     text-transform: uppercase;
 }
 
-img {
+.pokemon-images {
     height: 100px;
 }
 
-/* .poke-list{
-    color: coral;
-    text-shadow: 2px 2px thistle;
-} */
+.pokemon-list {
+    border: none;
+}
 
 h4 {
     color:rgb(122, 247, 218);
