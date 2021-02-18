@@ -3,6 +3,11 @@
 PokedexPlan from '../public/PokedexPlanningMiroBoard.png'
 made with friends <3
 
+
+Lab 5 Planning Diagram made with friends
+<img width="1128" alt="Screen Shot 2021-02-17 at 1 46 43 PM" src="https://user-images.githubusercontent.com/74579728/108272260-d6b7d580-7126-11eb-9021-87fbcffb9c09.png">
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
