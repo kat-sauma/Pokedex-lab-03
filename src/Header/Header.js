@@ -13,13 +13,13 @@ export default withRouter(class Header extends Component {
                     <h2 className='title'>Pokedex</h2>
                     {
                         this.props.location.pathname !== '/'
-                        && < NavLink exact activeClassName='selected' to='/'>
+                        && < NavLink className='nav-link' exact activeClassName='selected' to='/'>
                             Home
-                </NavLink>
+                        </NavLink>
                     }
                     {
                         this.props.location.pathname !== '/search'
-                        && <NavLink exact activeClassName='selected' to='/search'>
+                        && <NavLink className='nav-link' exact activeClassName='selected' to='/search'>
                             Search
                     </NavLink>
                     }
